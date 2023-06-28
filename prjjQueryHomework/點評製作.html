@@ -1,0 +1,90 @@
+﻿<!doctype html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <title>點評製作</title>
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        .reset {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>評分系統</h2>
+        <img id="a" class="i" src="images/star.gif" />
+        <img id="b" class="i" src="images/star.gif" />
+        <img id="c" class="i" src="images/star.gif" />
+        <img id="d" class="i" src="images/star.gif" />
+        <img id="e" class="i" src="images/star.gif" />
+        <p>請評分</p>
+        <input type="button" class="reset" value='重新評分' />
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>    <script>
+
+        var countStars = 0
+        var hasClicked = false
+
+        function into(e) {
+            if (!hasClicked) {
+                $(e.currentTarget)
+                    .prevAll("img")
+                    .prop("src", "images/chngstar.gif")
+                    .end()
+                    .prop("src", "images/chngstar.gif");
+
+                countStars = $("img").index(e.currentTarget) + 1;
+
+                $("p").text("評分中..." + countStars + "星");
+            }
+        }
+        let out = (e) => {
+            if (!hasClicked) {
+                $(e.currentTarget)
+                    .prevAll("img")
+                    .prop("src", "images/star.gif")
+                    .end()
+                    .prop("src", "images/star.gif");
+
+                $("p").text("請評分");
+            }
+        }
+
+        $("img").hover(into, out)
+
+        $("img").click(function (e) {
+
+            hasClicked = true
+
+            $(e.currentTarget)
+                .prevAll()
+                .prop("src", "images/chngstar.gif")
+                .end()
+                .prop("src", "images/chngstar.gif")
+                .nextAll()
+                .prop("src", "images/star.gif");
+
+            countStars = $("img").index(e.currentTarget) + 1;
+
+            $("p").text("你給" + countStars + "顆星");
+        })
+
+        $(".reset").click(function () {
+            countStars = 0
+            hasClicked = false
+
+            $("img").prop("src", "images/star.gif")
+
+            $("p").text("請評分");
+        })
+    </script>
+</body>
+</html>
