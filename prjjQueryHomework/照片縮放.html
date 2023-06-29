@@ -23,14 +23,23 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script>
+
+
+        let originalWidth = $(window).width();
+        let originakHeight = $(window).height();
+        let originalObjHeight = $("#div1").height();
+        let originalObjWidth = $("#div1").width();
         move_div();
 
         $(window).resize(move_div);
 
+        
+
         function move_div() {
 
-            let windowHeight = $(this).height();
-            let windowWidth = $(this).width();
+            let windowHeight = $(window).height();
+            let windowWidth = $(window).width();
+
 
             let objHeight = $("#div1").height();
             let objWidth = $("#div1").width();
@@ -38,8 +47,11 @@
             let top = (windowHeight - objHeight) / 2;
             let left = (windowWidth - objWidth) / 2;
 
-            $("#div1").css("top", top).css("left", left);
-        }   
+            let proportionalChange = Math.min(windowWidth / originalWidth, windowHeight / originakHeight);
+
+
+            $("#div1").css("height", originalObjHeight * proportionalChange).css("width", originalObjWidth * proportionalChange).css("top", top).css("left", left);
+        } 
 
     </script>
 </body>
