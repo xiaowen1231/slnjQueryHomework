@@ -2136,7 +2136,7 @@
     <Content Include="images\tesla2.jpg" />
     <Content Include="Web.config" />
     <Content Include="廣告輪播.html" />
-    <Content Include="自動大小圖片.html" />
+    <Content Include="照片縮放.html" />
     <Content Include="點評製作.html" />
   </ItemGroup>
   <ItemGroup>
