@@ -2125,14 +2125,12 @@
     <Content Include="css\fontawesome-free-6.4.0-web\svgs\solid\z.svg" />
     <Content Include="images\arrow1.gif" />
     <Content Include="images\arrow2.jpg" />
-    <Content Include="images\car.png" />
     <Content Include="images\chngstar.gif" />
     <Content Include="images\slide1.jpg" />
     <Content Include="images\slide2.jpg" />
     <Content Include="images\slide3.jpg" />
     <Content Include="images\slide4.jpg" />
     <Content Include="images\slide5.jpg" />
-    <Content Include="images\sport.jpg" />
     <Content Include="images\star.gif" />
     <Content Include="images\tesla1.jpg" />
     <Content Include="images\tesla2.jpg" />
