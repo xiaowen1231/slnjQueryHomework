@@ -2134,7 +2134,9 @@
     <Content Include="images\star.gif" />
     <Content Include="images\tesla1.jpg" />
     <Content Include="images\tesla2.jpg" />
+    <Content Include="js\taiwan_districts.js" />
     <Content Include="Web.config" />
+    <Content Include="台灣縣市.html" />
     <Content Include="廣告輪播.html" />
     <Content Include="照片縮放.html" />
     <Content Include="點評製作.html" />
