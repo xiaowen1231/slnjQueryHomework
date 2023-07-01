@@ -4,37 +4,87 @@
     <meta charset="utf-8" />
     <title>台灣行政區郵遞區號</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="css/nav.css" rel="stylesheet" />
     <style>
-        .table{
-            width:30%;
+        .table {
+            width: 100%;
+        }
+        .content {
+            display: flex;
+            justify-content:space-around;
+            gap: 20px;
+            margin:0 auto;
+            width:60%;
+        }
+        .city{
+            height:2em;
+            border-radius:10px;
+        }
+        .area {
+            height: 2em;
+            border-radius: 10px;
+        }
+        .comboBoxDistricts{
+            width:100%;
         }
     </style>
 </head>
 
 <body>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>縣市</th>
-                <th>區號</th>
-                <th>地區</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-
+    <div class="head">
+        <div class="items"><a href="點評製作.html">Homework1</a></div>
+        <div class="items"><a href="廣告輪播.html">Homework2</a></div>
+        <div class="items"><a href="照片縮放.html">Homework3</a></div>
+        <div class="items"><a href="台灣縣市.html">Homework4</a></div>
+    </div>
+    <div class="content">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>縣市</th>
+                    <th>區號</th>
+                    <th>地區</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="comboBoxDistricts">
+            <select class="city">
+                <option value="台北市" selected="selected">請選擇</option>
+            </select>
+            <select class="area">
+            </select>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="js/taiwan_districts.js"></script>
     <script>
         $(data).each(function (i, e) {
+            $(".city").append(`<option value="${e.name}">${e.name}</option>`)
             $(e.districts).each(function (i, v) {
                 if (i == 0) {
                     $("tbody").append(`<tr><td rowspan='${e.districts.length}'>${e.name}</td><td>${v.zip}</td><td>${v.name}</td></tr>`)
                 }
                 else {
                     $("tbody").append(`<tr><td>${v.zip}</td><td>${v.name}</td></tr>`)
+                }
+            })
+        })
 
+        let city;
+        $(".city").change(function () {
+            $(".area option").remove();
+            city = $(this).val()
+            $(data).each(function (i, e) {
+                console.log(city)
+                console.log(e.name)
+                if (city == e.name) {
+                    /*console.log(e.districts);*/
+                    $(e.districts).each(function (i, e) {
+                        console.log(e.name);
+                        $(".area").append(`<option value="${e.name}">${e.name}</option>`)
+                    })
                 }
             })
 

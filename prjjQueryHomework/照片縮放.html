@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>照片縮放</title>
+    <link href="css/nav.css" rel="stylesheet" />
     <style>
         img {
             position: absolute;
@@ -14,12 +15,18 @@
             position: absolute;
             width: 400px;
             height: 300px;
-        }       
+        }
     </style>
 </head>
 <body>
+    <div class="head">
+        <div class="items"><a href="點評製作.html">Homework1</a></div>
+        <div class="items"><a href="廣告輪播.html">Homework2</a></div>
+        <div class="items"><a href="照片縮放.html">Homework3</a></div>
+        <div class="items"><a href="台灣縣市.html">Homework4</a></div>
+    </div>
     <div id="div1">
-            <img id="image1" src="images/tesla1.jpg">
+        <img id="image1" src="images/tesla1.jpg">
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script>
@@ -33,7 +40,7 @@
 
         $(window).resize(move_div);
 
-        
+
 
         function move_div() {
 
@@ -51,7 +58,7 @@
 
 
             $("#div1").css("height", originalObjHeight * proportionalChange).css("width", originalObjWidth * proportionalChange).css("top", top).css("left", left);
-        } 
+        }
 
     </script>
 </body>

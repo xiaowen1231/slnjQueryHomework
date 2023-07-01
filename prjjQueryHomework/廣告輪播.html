@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>廣告輪播</title>
     <link rel="stylesheet" href="css/fontawesome-free-6.4.0-web/css/all.min.css">
+    <link href="css/nav.css" rel="stylesheet" />
     <style>
         .wrapper {
             position: relative;
@@ -31,18 +32,18 @@
             transition: all .5s;
         }
 
-        ul.slides li {
-            width: 800px;
-            height: 300px;
-            overflow: hidden;
-            float: left;
-        }
+            ul.slides li {
+                width: 800px;
+                height: 300px;
+                overflow: hidden;
+                float: left;
+            }
 
-        ul.slides li img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+                ul.slides li img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
 
         .dot {
             bottom: 10px;
@@ -51,12 +52,12 @@
             justify-content: center;
         }
 
-        .dot li {
-            border: 1px solid #fff;
-            margin: 0 5px;
-            width: 24px;
-            height: 10px;
-        }
+            .dot li {
+                border: 1px solid #fff;
+                margin: 0 5px;
+                width: 24px;
+                height: 10px;
+            }
 
 
         .slide_btn {
@@ -90,6 +91,12 @@
     </style>
 </head>
 <body>
+    <div class="head">
+        <div class="items"><a href="點評製作.html">Homework1</a></div>
+        <div class="items"><a href="廣告輪播.html">Homework2</a></div>
+        <div class="items"><a href="照片縮放.html">Homework3</a></div>
+        <div class="items"><a href="台灣縣市.html">Homework4</a></div>
+    </div>
     <div class="wrapper">
         <ul class="slides">
             <li><img src="images/slide1.jpg" alt=""></li>
@@ -112,8 +119,8 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script>
-        let slideNum=0;
-        let slideCount=$(".slides li").length;
+        let slideNum = 0;
+        let slideCount = $(".slides li").length;
         let lastIndex = slideCount - 1;
         let autoDisplay;
 
@@ -128,17 +135,17 @@
         $(".dot li").hover(function (e) {
             slideNum = $(".dot li").index(e.currentTarget);
             show()
-            })
+        })
 
         $("#prevSlide").click(function () {
             slideNum--
             show()
-            })
+        })
 
         $("#nextSlide").click(function () {
             slideNum++
             show()
-            })
+        })
 
         function show() {
             slideNum > lastIndex ? slideNum = 0 : slideNum;
@@ -154,7 +161,7 @@
             autoDisplay = setInterval(function () {
                 slideNum++
                 show()
-            },2000)
+            }, 2000)
         }
         setAutoPlayer();
     </script>
